@@ -1,3 +1,8 @@
 # python-fast-sftp
 
-README TEST
+TBD
+   
+```bash
+$ ./fast-sftp.py /path/to/file
+```
+   
