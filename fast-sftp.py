@@ -18,8 +18,15 @@ localpath = sys.argv[1]
 remotepath = destpath + "/" + os.path.basename(localpath)
 
 sftp.put(localpath, remotepath)
-# DEBUG
-print("Done Fast-sftp")
+
+try:
+    sftp.stat(remotepath)
+    print('file exists')
+    print('done fast-sftp')
+except IOError:
+    print('retry copy')
+    sftp.put(localpath, remotepath)
+    print('finish retry')
 
 sftp.close()
 ssh.close()
